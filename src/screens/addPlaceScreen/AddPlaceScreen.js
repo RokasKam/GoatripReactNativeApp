@@ -129,7 +129,9 @@ const AddPlaceScreen = ({setLoading}) => {
             <View style={styles.button}>
               <Button
                 buttonText="Add the place"
-                onClickAction={() => errorChecker(handleUpload)}
+                onClickAction={() =>
+                  errorChecker(handleUpload, () => setLoading(false))
+                }
               />
             </View>
             <AddPhoto

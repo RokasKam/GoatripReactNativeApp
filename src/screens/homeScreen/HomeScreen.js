@@ -11,7 +11,7 @@ import SearchSuggestions from '../../components/searchSuggestions/SearchSuggesti
 import {useFetchSuggestions} from '../../hooks/useFetchSuggestions';
 
 const HomeScreen = () => {
-  const {places} = usePlacesContext();
+  const {places, isLoading} = usePlacesContext();
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchSuggestions, setSearchSuggestions] = useState([]);
@@ -73,6 +73,7 @@ const HomeScreen = () => {
           places={places}
           changeCurrentPage={changeCurrentPage}
           isUserPage={false}
+          isLoading={isLoading}
         />
       </SafeAreaView>
     </BlurryBackround>

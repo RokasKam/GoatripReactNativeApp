@@ -8,6 +8,7 @@ export const usePlacesContext = () => {
 
 export const PlaceContext = ({children}) => {
   const [places, setPlaces] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const updateAPlace = (id, rating) => {
     setPlaces(state =>
@@ -18,7 +19,8 @@ export const PlaceContext = ({children}) => {
   };
 
   return (
-    <PlacesContext.Provider value={{places, setPlaces, updateAPlace}}>
+    <PlacesContext.Provider
+      value={{places, setPlaces, updateAPlace, isLoading, setIsLoading}}>
       {children}
     </PlacesContext.Provider>
   );

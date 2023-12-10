@@ -12,7 +12,7 @@ import {useReload} from '../../hooks/useReload';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const {userPlaces, setUserPlaces} = useUserPlacesContext();
+  const {userPlaces, setUserPlaces, isLoading} = useUserPlacesContext();
   const {user, setUser} = useUserContext();
   const isFocused = useIsFocused();
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,6 +47,7 @@ const ProfileScreen = () => {
           places={userPlaces}
           changeCurrentPage={changeCurrentPage}
           isUserPage={true}
+          isLoading={isLoading}
         />
       </SafeAreaView>
     </BlurryBackround>

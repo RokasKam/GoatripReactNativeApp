@@ -9,7 +9,7 @@ export const useFetchPlaces = (
   currentPage,
   apliedSearchTerm,
 ) => {
-  const {setPlaces} = usePlacesContext();
+  const {setPlaces, setIsLoading} = usePlacesContext();
   useEffect(() => {
     setPlaces([]);
   }, [selectedCategory, apliedSearchTerm, setPlaces]);
@@ -21,9 +21,17 @@ export const useFetchPlaces = (
       PageNumber: currentPage,
       PageSize: PLACES_PER_PAGE,
     };
+    setIsLoading(true);
     const response = await apiService.fetchPlaces(params);
     setPlaces(state => [...state, ...response.data]);
-  }, [apliedSearchTerm, currentPage, selectedCategory, setPlaces]);
+    setIsLoading(false);
+  }, [
+    apliedSearchTerm,
+    currentPage,
+    selectedCategory,
+    setIsLoading,
+    setPlaces,
+  ]);
 
   useEffect(() => {
     errorChecker(() => getPlaces());

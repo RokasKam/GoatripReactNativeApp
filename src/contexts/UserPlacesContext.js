@@ -7,7 +7,8 @@ export const useUserPlacesContext = () => {
 };
 export const UserPlacesContext = ({children}) => {
   const [userPlaces, setUserPlaces] = useState([]);
-  const [isReloadNeeded, setIsReloadNeeded] = useState([]);
+  const [isReloadNeeded, setIsReloadNeeded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const updateAUserPlace = (id, rating) => {
     setUserPlaces(state =>
@@ -24,6 +25,8 @@ export const UserPlacesContext = ({children}) => {
         updateAUserPlace,
         isReloadNeeded,
         setIsReloadNeeded,
+        isLoading,
+        setIsLoading,
       }}>
       {children}
     </UserPlacesContextVar.Provider>

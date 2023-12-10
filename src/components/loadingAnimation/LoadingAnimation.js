@@ -15,6 +15,6 @@ const LoadingAnimation = ({loadingText}) => {
 
 export default LoadingAnimation;
 
-LoadingAnimation.PropTypes = {
+LoadingAnimation.propTypes = {
   loadingText: PropTypes.string.isRequired,
 };
